@@ -14,7 +14,8 @@ class Jets::Commands::RakeTasks
       # Run Bundler.setup so all project rake tasks also show up in `jets help`
       Jets::Bundle.setup
 
-      Jets::Commands::Db::Tasks.load!
+      Jets::Commands::Db::Tasks.load! unless Jets.application.config.database == {}
+      load File.expand_path("../environment-task.rake", __FILE__)
       load_webpacker_tasks
 
       # custom project rake tasks

@@ -16,7 +16,6 @@ class Jets::Commands::Db::Tasks
     # activerecord-5.1.4/lib/active_record/tasks/database_tasks.rb
     Rails.application = Dummy::App.new
     load "active_record/railties/databases.rake"
-    load File.expand_path("../environment-task.rake", __FILE__)
   end
 
 
